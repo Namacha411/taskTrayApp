@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Windows.Forms;
 
-using static taskTrayApp.MyIconUtil;
 using taskTrayApp;
 
 class MainClass
@@ -32,7 +31,7 @@ class MainClass
                 MessageBox.Show(
                     text: "設定ファイルを作成しました\n終了します",
                     caption: "初回起動時メッセージ"
-                    );
+                );
                 Environment.Exit(0);
             }
             // 通常起動時の設定読み込み
@@ -40,18 +39,23 @@ class MainClass
             var setting = settingData.Deserialize(settingData.FileRead());
             AppTitle = setting.AppName;
             SoundsFolderPath = setting.FolderPath;
+            MessageBox.Show(
+                text: "設定ファイルを読み込みました\n起動します",
+                caption: "通常起動時メッセージ"
+            );
 
             // main
             var soundsFolder = new PlaySounds(SoundsFolderPath);
-            new TaskTray(
+            var taskTray = new TaskTray(
                 title: AppTitle,
-                icon: Create16x16Icon(iconDot),
+                icon: taskTrayApp.Properties.Resources.Icon,
                 span: TaskTray.TimeSpan.Hour,
                 action: () =>
                 {
                     soundsFolder.PlayTimeSignal();
                 }
             );
+            taskTray.Run();
             Application.Run();
         }
         finally

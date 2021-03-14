@@ -32,7 +32,6 @@ namespace taskTrayApp
             Span = span;
             Action = action;
             InitComponents();
-            Run();
         }
 
         /// <summary>
@@ -62,7 +61,7 @@ namespace taskTrayApp
         /// <summary>
         /// アプリを起動
         /// </summary>
-        private void Run()
+        public void Run()
         {
             thread = new Thread(() => { interval(Span, Action); });
             thread.Start();

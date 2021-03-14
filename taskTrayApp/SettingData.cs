@@ -34,7 +34,14 @@ namespace taskTrayApp
         /// <returns>シリアライズ後のjson string</returns>
         public string Serialize()
         {
-            return JsonSerializer.Serialize(this);
+            return JsonSerializer.Serialize(
+                value: this,
+                options: new JsonSerializerOptions
+                {
+                    AllowTrailingCommas = true,
+                    WriteIndented = true,
+                }
+                );
         }
 
         /// <summary>

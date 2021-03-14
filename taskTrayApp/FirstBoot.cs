@@ -27,7 +27,7 @@ namespace taskTrayApp
         /// 設定ファイルの有無
         /// </summary>
         /// <returns>あればtrue、なければfalse</returns>
-        public static bool ExistSettingFile(string path = SettingData.defaultSettingFilePath)
+        private static bool ExistSettingFile(string path = SettingData.defaultSettingFilePath)
         {
             return File.Exists(path);
         }
