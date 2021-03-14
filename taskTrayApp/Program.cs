@@ -10,11 +10,11 @@ class MainClass
     private static string AppTitle { get; set; }
     private static string SoundsFolderPath { get; set; }
 
-    private readonly static string mutexName = "TaskTrayTimeSignal";
-
     [STAThread]
     static void Main(string[] args)
     {
+        // mutexによりアクセス競合を防ぐ
+        const string mutexName = "TaskTrayTimeSignal";
         var mutex = new Mutex(false, mutexName);
 
         bool hasHandle = false;
@@ -24,7 +24,17 @@ class MainClass
             catch (AbandonedMutexException) { hasHandle = true; }
             if (hasHandle == false) { return; }
 
-            var setting = new SettingFile().FileReadAndDeserialize();
+            // 起動時動作
+            if (FirstBoot.isFirstBoot())
+            {
+                // 初回起動時
+                FirstBoot.GenerateDefaultSettingFile();
+                MessageBox.Show($"初回起動\n設定ファイルを作成しました\n{SettingData.defaultSettingFilePath}");
+                Environment.Exit(0);
+            }
+            // 通常起動時の設定読み込み
+            var settingData = new SettingData();
+            var setting = settingData.Deserialize(settingData.FileRead());
             AppTitle = setting.AppName;
             SoundsFolderPath = setting.FolderPath;
 

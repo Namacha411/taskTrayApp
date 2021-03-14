@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 
 namespace taskTrayApp
 {
+    /// <summary>
+    /// 削除予定　かんたんな仮アイコンをAAから作成するクラス
+    /// </summary>
     public static class MyIconUtil
     {
         public static readonly string[] iconDot = new string[]{
