@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "taskTrayApp", "taskTrayApp\taskTrayApp.csproj", "{D26E7A20-B945-4BEB-BA20-A76DAC11266D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D26E7A20-B945-4BEB-BA20-A76DAC11266D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D26E7A20-B945-4BEB-BA20-A76DAC11266D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D26E7A20-B945-4BEB-BA20-A76DAC11266D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D26E7A20-B945-4BEB-BA20-A76DAC11266D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79F44C44-D4C1-4B9E-85E4-74F0D610ED41}
+	EndGlobalSection
+EndGlobal
