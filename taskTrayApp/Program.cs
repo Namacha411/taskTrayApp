@@ -29,7 +29,10 @@ class MainClass
             {
                 // 初回起動時
                 FirstBoot.GenerateDefaultSettingFile();
-                MessageBox.Show($"初回起動\n設定ファイルを作成しました\n{SettingData.defaultSettingFilePath}");
+                MessageBox.Show(
+                    text: "設定ファイルを作成しました\n終了します",
+                    caption: "初回起動時メッセージ"
+                    );
                 Environment.Exit(0);
             }
             // 通常起動時の設定読み込み
