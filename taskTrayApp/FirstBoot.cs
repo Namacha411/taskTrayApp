@@ -54,8 +54,7 @@ namespace taskTrayApp
         {
             var data = new SettingData() { 
                 AppName = "appname",
-                FolderPath = @"C:\SoundPath\",
-                IconPath = @"C:\IconPath\"
+                FolderPath = @"C:\SoundPath\"
             };
             return data;
         }

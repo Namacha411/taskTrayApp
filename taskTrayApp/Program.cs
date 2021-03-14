@@ -34,7 +34,7 @@ class MainClass
                 );
                 Environment.Exit(0);
             }
-            // 通常起動時の設定読み込み
+            // 通常起動時
             var settingData = new SettingData();
             var setting = settingData.Deserialize(settingData.FileRead());
             AppTitle = setting.AppName;

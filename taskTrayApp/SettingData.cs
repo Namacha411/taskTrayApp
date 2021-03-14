@@ -20,7 +20,6 @@ namespace taskTrayApp
 
         public string AppName { get; set; }
         public string FolderPath { get; set; }
-        public string IconPath { get; set; }
 
         /// <summary>
         /// jsonデシリアライズ用デフォルトコンストラクタ
