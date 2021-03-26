@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTrayAppTest", "TaskTrayAppTest\TaskTrayAppTest.csproj", "{E7241972-A266-4C96-8AC6-B23828E17DBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,14 @@ Global
 		{D26E7A20-B945-4BEB-BA20-A76DAC11266D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D26E7A20-B945-4BEB-BA20-A76DAC11266D}.Release|x64.ActiveCfg = Release|x64
 		{D26E7A20-B945-4BEB-BA20-A76DAC11266D}.Release|x64.Build.0 = Release|x64
+		{E7241972-A266-4C96-8AC6-B23828E17DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7241972-A266-4C96-8AC6-B23828E17DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7241972-A266-4C96-8AC6-B23828E17DBF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E7241972-A266-4C96-8AC6-B23828E17DBF}.Debug|x64.Build.0 = Debug|Any CPU
+		{E7241972-A266-4C96-8AC6-B23828E17DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7241972-A266-4C96-8AC6-B23828E17DBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7241972-A266-4C96-8AC6-B23828E17DBF}.Release|x64.ActiveCfg = Release|Any CPU
+		{E7241972-A266-4C96-8AC6-B23828E17DBF}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
