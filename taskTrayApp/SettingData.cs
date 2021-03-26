@@ -10,7 +10,7 @@ namespace taskTrayApp
     /// <summary>
     /// アプリの設定に関係するクラス
     /// </summary>
-    class SettingData
+    public class SettingData
     {
         // デフォルトの設定ファイルのパスと名前
         public const string defaultSettingFolderPath = @".\config";

@@ -1,5 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.IO;
+
+using taskTrayApp;
 
 namespace TaskTrayAppTest
 {
@@ -7,7 +10,7 @@ namespace TaskTrayAppTest
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void SoundsPlay()
         {
         }
     }

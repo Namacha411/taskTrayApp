@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools;
 
 using WMPLib;
 
@@ -27,8 +29,19 @@ namespace taskTrayApp
         public void PlayTimeSignal()
         {
             var hour = DateTime.Now.Hour;
+            if (!canPlay(SoundPaths[hour])) { return; }
             mediaPlayer.URL = SoundPaths[hour];
             mediaPlayer.controls.play();
+        }
+
+        /// <summary>
+        /// 音が再生できるかどうか
+        /// </summary>
+        /// <param name="soundPath">音ファイルのパス</param>
+        /// <returns>再生できればtrue、できなければfalse</returns>
+        private bool canPlay(string soundPath)
+        {
+            return File.Exists(soundPath);
         }
     }
 }
