@@ -1,12 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools;
 
 using WMPLib;
 
 namespace taskTrayApp
 {
+    /// <summary>
+    /// 時報の再生を行う
+    /// </summary>
     public class TimesignalPlayer
     {
         private WindowsMediaPlayer mediaPlayer;

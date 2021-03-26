@@ -33,6 +33,7 @@ namespace taskTrayApp
             {
                 GenerateDefaultSettingFile();
             }
+            System.Diagnostics.Process.Start(SettingData.defaultSettingFolderPath);
         }
         /// <summary>
         /// 設定ファイルの有無

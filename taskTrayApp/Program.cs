@@ -4,7 +4,10 @@ using System.Windows.Forms;
 
 using taskTrayApp;
 
-class MainClass
+/// <summary>
+/// メインクラス
+/// </summary>
+public class MainClass
 {
     private const string AppTitle = "Time Signal";
 
@@ -27,7 +30,7 @@ class MainClass
             {
                 // 初回起動時
                 MessageBox.Show(
-                    text: "設定ファイルを作成します",
+                    text: "設定ファイルを作成し、開きます",
                     caption: "初回起動時メッセージ"
                 );
                 FirstBoot.Boot();

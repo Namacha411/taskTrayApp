@@ -5,6 +5,9 @@ using System.Drawing;
 
 namespace taskTrayApp
 {
+    /// <summary>
+    /// タスクトレイで起動するために必要な設定等を行い起動する
+    /// </summary>
     public class TaskTray : Form
     {
         private string Title;
