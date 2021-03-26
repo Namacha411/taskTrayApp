@@ -7,10 +7,11 @@ namespace taskTrayApp
 {
     public class TaskTray : Form
     {
-        private string Title { get; set; }
-        private Icon TrayIcon { get; set; }
-        private Func<int> Span { get; set; }
-        private Action Action { get; set; }
+        private string Title;
+        private Icon TrayIcon;
+        private Func<int> Span;
+        private Action Action;
+        private int IntervalTime;
 
         private Thread thread;
 
@@ -25,12 +26,13 @@ namespace taskTrayApp
         /// 子クラスのTimeSpan内の関数からタイムスパンを選ぶ
         /// </param>
         /// <param name="action">一定タイムスパンごとに呼び出される関数</param>
-        public TaskTray(string title, Icon icon, Func<int> span, Action action)
+        public TaskTray(string title, Icon icon, Func<int> span, Action action, int intervalTime = 100)
         {
             Title = title;
             TrayIcon = icon;
             Span = span;
             Action = action;
+            IntervalTime = intervalTime;
             InitComponents();
         }
 
@@ -45,7 +47,12 @@ namespace taskTrayApp
             // アイコンを右クリックしたときのメニュー
             var menu = new ContextMenuStrip();
             menu.Items.AddRange(new ToolStripMenuItem[]{
-                new ToolStripMenuItem("Exit", null, (s,e)=>{ ExitApp(); }, "Exit")
+                new ToolStripMenuItem(
+                    text: "Exit",
+                    image: null,
+                    onClick: (s, e) => { ExitApp(); },
+                    name: "Exit"
+                    ),
             });
 
             // アイコン関係
@@ -63,7 +70,7 @@ namespace taskTrayApp
         /// </summary>
         public void Run()
         {
-            thread = new Thread(() => { interval(Span, Action); });
+            thread = new Thread(() => { interval(Span, Action, IntervalTime); });
             thread.Start();
         }
 
@@ -72,7 +79,7 @@ namespace taskTrayApp
         /// </summary>
         /// <param name="span">子クラスTimeSpanの関数を渡す</param>
         /// <param name="action">一定間隔ごとに実行する関数</param>
-        private void interval(Func<int> span, Action action)
+        private void interval(Func<int> span, Action action, int intervalTime)
         {
             int prev = span();
             while (true)
@@ -83,7 +90,7 @@ namespace taskTrayApp
                     action();
                 }
                 prev = span();
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(intervalTime);
             }
         }
 

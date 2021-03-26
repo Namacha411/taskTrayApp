@@ -6,8 +6,7 @@ using taskTrayApp;
 
 class MainClass
 {
-    private static string AppTitle { get; set; }
-    private static string SoundsFolderPath { get; set; }
+    private const string AppTitle = "Time Signal";
 
     [STAThread]
     static void Main(string[] args)
@@ -27,33 +26,32 @@ class MainClass
             if (FirstBoot.isFirstBoot())
             {
                 // 初回起動時
-                FirstBoot.GenerateDefaultSettingFile();
                 MessageBox.Show(
-                    text: "設定ファイルを作成しました\n終了します",
+                    text: "設定ファイルを作成します",
                     caption: "初回起動時メッセージ"
                 );
+                FirstBoot.Boot();
                 Environment.Exit(0);
             }
             // 通常起動時
             var settingData = new SettingData();
             var setting = settingData.Deserialize(settingData.FileRead());
-            AppTitle = setting.AppName;
-            SoundsFolderPath = setting.FolderPath;
+            var timeSignal = new TimesignalPlayer(setting.SoundPaths);
             MessageBox.Show(
                 text: "設定ファイルを読み込みました\n起動します",
                 caption: "通常起動時メッセージ"
             );
 
             // main
-            var soundsFolder = new PlaySounds(SoundsFolderPath);
             var taskTray = new TaskTray(
                 title: AppTitle,
                 icon: taskTrayApp.Properties.Resources.Icon,
                 span: TaskTray.TimeSpan.Hour,
                 action: () =>
                 {
-                    soundsFolder.PlayTimeSignal();
-                }
+                    timeSignal.PlayTimeSignal();
+                },
+                intervalTime: 1000
             );
             taskTray.Run();
             Application.Run();

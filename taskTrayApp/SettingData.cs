@@ -1,6 +1,9 @@
 ﻿using System.Text;
 using System.IO;
 using System.Text.Json;
+using System.Collections.Generic;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 namespace taskTrayApp
 {
@@ -10,10 +13,10 @@ namespace taskTrayApp
     class SettingData
     {
         // デフォルトの設定ファイルのパスと名前
-        public const string defaultSettingFilePath = @".\setting.json";
+        public const string defaultSettingFolderPath = @".\config";
+        public const string defaultSettingFilePath = @".\config\setting.json";
 
-        public string AppName { get; set; }
-        public string FolderPath { get; set; }
+        public List<string> SoundPaths { get; set; }
 
         /// <summary>
         /// jsonデシリアライズ用デフォルトコンストラクタ
@@ -27,14 +30,16 @@ namespace taskTrayApp
         /// <returns>シリアライズ後のjson string</returns>
         public string Serialize()
         {
-            return JsonSerializer.Serialize(
+            string json = JsonSerializer.Serialize(
                 value: this,
                 options: new JsonSerializerOptions
                 {
+                    Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
                     AllowTrailingCommas = true,
-                    WriteIndented = true,
+                    WriteIndented = true
                 }
                 );
+            return json;
         }
 
         /// <summary>
