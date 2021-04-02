@@ -69,7 +69,7 @@ namespace taskTrayApp
                     onClick: (s, e) =>
                     {
                         MessageBox.Show(
-                            text: "1.0.0",
+                            text: "1.1",
                             caption: "Version"
                             );
                     },
