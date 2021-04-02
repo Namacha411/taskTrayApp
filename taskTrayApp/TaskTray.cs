@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Threading;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace taskTrayApp
 {
@@ -45,7 +46,7 @@ namespace taskTrayApp
         private void InitComponents()
         {
             // タスクバーに表示
-            ShowInTaskbar = true;
+            ShowInTaskbar = false;
 
             // アイコンを右クリックしたときのメニュー
             var menu = new ContextMenuStrip();
@@ -56,6 +57,24 @@ namespace taskTrayApp
                     onClick: (s, e) => { ExitApp(); },
                     name: "Exit"
                     ),
+                new ToolStripMenuItem(
+                    text: "Open sounds folder",
+                    image: null,
+                    onClick: (s, e) => { StartSettingFolderWindow(); },
+                    name: "OpenSoundsFolder"
+                    ),
+                new ToolStripMenuItem(
+                    text: "Version",
+                    image: null,
+                    onClick: (s, e) =>
+                    {
+                        MessageBox.Show(
+                            text: "1.0.0",
+                            caption: "Version"
+                            );
+                    },
+                    name: "Version"
+                    )
             });
 
             // アイコン関係
@@ -93,7 +112,7 @@ namespace taskTrayApp
                     action();
                 }
                 prev = span();
-                System.Threading.Thread.Sleep(intervalTime);
+                Thread.Sleep(intervalTime);
             }
         }
 
@@ -104,6 +123,14 @@ namespace taskTrayApp
         {
             thread.Abort();
             Application.Exit();
+        }
+
+        /// <summary>
+        /// 設定フォルダのウィンドウを起動
+        /// </summary>
+        public static void StartSettingFolderWindow()
+        {
+            Process.Start(SettingData.defaultSettingFolderPath);
         }
 
         /// <summary>

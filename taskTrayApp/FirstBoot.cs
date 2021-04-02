@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Diagnostics;
 
 namespace taskTrayApp
 {
@@ -33,8 +33,9 @@ namespace taskTrayApp
             {
                 GenerateDefaultSettingFile();
             }
-            System.Diagnostics.Process.Start(SettingData.defaultSettingFolderPath);
+            Process.Start(SettingData.defaultSettingFolderPath);
         }
+
         /// <summary>
         /// 設定ファイルの有無
         /// </summary>

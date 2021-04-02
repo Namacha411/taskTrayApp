@@ -35,7 +35,6 @@ Global
 		{E7241972-A266-4C96-8AC6-B23828E17DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7241972-A266-4C96-8AC6-B23828E17DBF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E7241972-A266-4C96-8AC6-B23828E17DBF}.Release|x64.ActiveCfg = Release|Any CPU
-		{E7241972-A266-4C96-8AC6-B23828E17DBF}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
